@@ -1,7 +1,7 @@
 import express from 'express';
 import {
   getUserStocks,
-  createStockFromAPI,
+  AddStock,
   updateStock,
   removeStock,
 } from '../controllers/stockController.js';
@@ -12,7 +12,7 @@ const router = express.Router();
 router.use(authenticate);
 
 router.get('/', getUserStocks);
-router.post('/', createStockFromAPI); // now uses external API
+router.post('/', AddStock);
 router.put('/:stockId', updateStock);
 router.delete('/:stockId', removeStock);
 
