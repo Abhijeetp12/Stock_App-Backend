@@ -7,7 +7,6 @@ import stockRoutes from "./routes/stockRoutes.js";
 dotenv.config();
 const app = express();
 
-// ✅ CORS setup
 app.use(
   cors({
     origin: [
