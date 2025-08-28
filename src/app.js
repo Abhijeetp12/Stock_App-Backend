@@ -11,7 +11,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:3001", 
-      "https://your-frontend-domain.com", 
+      "https://stockportfolio-delta.vercel.app", 
     ],
     credentials: true, 
   })
