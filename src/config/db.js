@@ -1,4 +1,3 @@
-// db.js
 import { Pool } from 'pg';
 import dotenv from 'dotenv';
 dotenv.config();
@@ -12,11 +11,11 @@ const pool = new Pool({
 
 pool.connect()
   .then(client => {
-    console.log("✅ Connected to Neon PostgreSQL");
+    console.log("Connected to Database");
     client.release();
   })
   .catch(err => {
-    console.error("❌ Error connecting to Neon:", err);
+    console.error("Error connecting to Database:", err);
   });
 
 export default pool;
