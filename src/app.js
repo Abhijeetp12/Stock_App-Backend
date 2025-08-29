@@ -6,19 +6,20 @@ import stockRoutes from "./routes/stockRoutes.js";
 
 dotenv.config();
 const app = express();
-console.log( process.env.FRONTEND_URL)
-app.use(
-  cors({
-    origin: [
-      "http://localhost:3001", 
-      process.env.FRONTEND_URL,
-    ],
-    credentials: true, 
-  })
-);
+
+console.log("Allowed frontend:", process.env.FRONTEND_URL);
+
+const corsOptions = {
+  origin: ["http://localhost:3000", process.env.FRONTEND_URL],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
 
 app.use(express.json());
-
 
 app.use("/api/auth", authRoutes);
 app.use("/api/stocks", stockRoutes);
